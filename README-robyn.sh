@@ -22,5 +22,4 @@ Robyn:$(./scripts/cpu.sh)
 
 $(./scripts/test.sh)
 
-~~~
 EOF
