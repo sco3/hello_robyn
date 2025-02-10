@@ -1,3 +1,5 @@
+#!/usr/bin/env -S uv run
+
 
 from socketify import ASGI
 
