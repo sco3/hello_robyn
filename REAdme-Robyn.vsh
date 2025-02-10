@@ -1,6 +1,7 @@
 #!/usr/bin/env -S v run
 
 import time
+import regex
 
 if execute('lsof -i:8000').exit_code == 0 {
 	println('Port 8000 is in use. Stop process.')
@@ -10,6 +11,11 @@ if execute('lsof -i:8000').exit_code == 0 {
 execute('sudo cpupower frequency-set --governor performance')
 gov := execute('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor').output.replace('\n','')
 cpu := execute("cat /proc/cpuinfo | grep 'model name' | sort -u | awk -F':' '{print $2}'").output.replace('\n','')
+
+
+cpu_data := read_file ('/proc/cpuinfo') or {''}
+c1,c2 := regex.regex_opt ('name.+')!.match_string(cpu_data)
+println ("match: $c1 $c2")
 cpu_minus := cpu.replace_char(` `, `-`, 1).trim_space()
 
 mut proc := new_process('./.venv/bin/python3')
