@@ -9,6 +9,7 @@ app = Application()
 
 @get("/")
 async def root(r) -> Response:
+    # print (type (r))
     return Response(200, content=Content(b"text/plain", bytes(b'x'*5120)))
 
 def run_app():
