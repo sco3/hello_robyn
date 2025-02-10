@@ -594,11 +594,15 @@ name = "socketify-server"
 version = "0.1.0"
 source = { virtual = "socketify_server" }
 dependencies = [
+    { name = "fastapi" },
     { name = "socketify" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "socketify", specifier = ">=0.0.31" }]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.115.8" },
+    { name = "socketify", specifier = ">=0.0.31" },
+]
 
 [[package]]
 name = "starlette"
