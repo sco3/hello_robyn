@@ -9,7 +9,7 @@ class Config:
     config:bytes = None
     
     
-async def get_config (res,req):
+def get_config (res,req):
         res.end (Config.config)
     
 
