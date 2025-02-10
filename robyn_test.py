@@ -11,6 +11,6 @@ app = Robyn(__file__,cfg)
 @app.get("/")
 async def h(request):
     #return "Hello, world!\n"
-    return '*' * 5120
+    return bytes(b'*' * 5120)
 
 app.start(port=8000)
